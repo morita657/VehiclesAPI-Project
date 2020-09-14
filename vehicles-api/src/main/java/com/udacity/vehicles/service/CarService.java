@@ -54,6 +54,7 @@ public class CarService {
          * Note: The car class file uses @transient, meaning you will need to call
          *   the pricing service each time to get the price.
          */
+        car.setPrice(priceClient.getPrice(car.getId()));
 
 
         /**
@@ -64,7 +65,7 @@ public class CarService {
          * Note: The Location class file also uses @transient for the address,
          * meaning the Maps service needs to be called each time for the address.
          */
-
+        car.setLocation(mapsClient.getAddress(car.getLocation()));
 
         return car;
     }
